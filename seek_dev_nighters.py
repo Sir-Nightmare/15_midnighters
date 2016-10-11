@@ -24,11 +24,12 @@ def local_time(time_stamp, zone):
     local_date_time = utc_date_time.astimezone(local_time_zone)
     return local_date_time.time()
 
+
 def get_midnighters():
     set_of_midnighters = set()
     for record in load_attempts():
         user_time = local_time(record['timestamp'], record['timezone'])
-        if time(0,0,0) < user_time < time(6,0,0):
+        if time(0, 0, 0) < user_time < time(6, 0, 0):
             set_of_midnighters.add(record['username'])
     return sorted(set_of_midnighters)
 
@@ -38,6 +39,7 @@ def print_the_list(list_to_print):
     for username in list_to_print:
         print(username)
 
+
 if __name__ == '__main__':
-    midnighters = get_midnighters()
-    print_the_list(midnighters)
+   list_of_midnighters = get_midnighters()
+   print_the_list(list_of_midnighters)
