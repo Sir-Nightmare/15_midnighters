@@ -20,8 +20,7 @@ def load_attempts():
 
 def local_time(time_stamp, zone):
     local_time_zone = timezone(zone)
-    utc_date_time = datetime.fromtimestamp(float(time_stamp)).replace(tzinfo=utc)
-    local_date_time = utc_date_time.astimezone(local_time_zone)
+    local_date_time = datetime.fromtimestamp(float(time_stamp), tz=local_time_zone)
     return local_date_time.time()
 
 
@@ -41,5 +40,5 @@ def print_the_list(list_to_print):
 
 
 if __name__ == '__main__':
-   list_of_midnighters = get_midnighters()
-   print_the_list(list_of_midnighters)
+    list_of_midnighters = get_midnighters()
+    print_the_list(list_of_midnighters)
