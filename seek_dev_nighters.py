@@ -19,8 +19,7 @@ def load_attempts():
 
 
 def local_time(time_stamp, zone):
-    local_time_zone = timezone(zone)
-    local_date_time = datetime.fromtimestamp(float(time_stamp), tz=local_time_zone)
+    local_date_time = datetime.fromtimestamp(float(time_stamp), tz=timezone(zone))
     return local_date_time.time()
 
 
